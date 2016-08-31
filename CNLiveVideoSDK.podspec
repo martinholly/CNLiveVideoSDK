@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
       :tag => 'V0.8'
   }
   s.source_files = 'SDK/*.h'
-  s.vendored_frameworks = 'SDK/CNLiveActivity.framework'
+  s.vendored_frameworks = 'SDK/CNLiveUGC.framework'
   s.resources = 'SDK/*.bundle'
   s.license = 'MIT'
   s.requires_arc = false
