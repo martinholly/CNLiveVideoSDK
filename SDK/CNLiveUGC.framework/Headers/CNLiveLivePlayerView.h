@@ -26,10 +26,13 @@ typedef NS_ENUM (NSUInteger, CNLiveLivePlayerButtonClickActionOptions) {
     CNLiveLivePlayerSupportBtnAction = 5,              //支持TA
     CNLiveLivePlayerFlyKissBtnAction = 6,              //送飞吻
     CNLiveLivePlayerReplayBtnAction = 7,               //直播结束页面的重播按钮
-    CNLiveLivePlayerFilmDetailBtnAction = 8            //直播结束页面的电影详情按钮
+    CNLiveLivePlayerFilmDetailBtnAction = 8,           //直播结束页面的电影详情按钮
+    CNLiveLivePlayerInputBtnAction = 9,                //输入按钮
+    CNLiveLivePlayerDismissKeyboardAction = 10,        //收起键盘
+    CNLiveLivePlayerSendBtnAction = 11                 //发送
 };
 
-@protocol CNLiveLivePlayerViewDlegate <NSObject>
+@protocol CNLiveLivePlayerViewDelegate <NSObject>
 
 /* 接收到视频播放失败的回调
  *
@@ -66,7 +69,7 @@ typedef NS_ENUM (NSUInteger, CNLiveLivePlayerButtonClickActionOptions) {
  * kissMoney           当没有电影时，飞吻价格(有电影可不传)
  * roomId              聊天室Id
  * nickName            在聊天室中使用的昵称
- * contentId           内容ID
+ * vId                 视频Id
  * authFailed          鉴权失败回调
  *
  */
@@ -77,10 +80,10 @@ typedef NS_ENUM (NSUInteger, CNLiveLivePlayerButtonClickActionOptions) {
                     kissMoney:(NSString *)money
                        roomId:(NSString *)roomId
                      nickName:(NSString *)nickName
-                    contentId:(NSString *)contentId
+                          vId:(NSString *)vId
                    authFailed:(void(^)(NSDictionary *errorInfo))authFailedBlock;
 
-@property (nonatomic, assign)id<CNLiveLivePlayerViewDlegate> delegate;
+@property (nonatomic, assign)id<CNLiveLivePlayerViewDelegate> delegate;
 
 /* 传入贡献榜单信息
  *

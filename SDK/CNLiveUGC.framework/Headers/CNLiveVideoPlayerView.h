@@ -13,6 +13,8 @@ typedef NS_ENUM (NSUInteger, CNLiveVideoPlayerButtonClickActionOptions) {
     CNLiveVideoPlayerHostDetailBtnAction = 2,           //明星详情
     CNLiveVideoPlayerShareBtnAction = 3,                //分享
     CNLiveVideoPlayerContributionListBtnAction = 4,     //贡献榜
+    CNLiveVideoPlayerPlayBtnAction = 5,                 //播放
+    CNLiveVideoPlayerPauseBtnAction = 6                 //暂停
 };
 
 @protocol CNLiveVideoPlayerViewDelegate <NSObject>
@@ -30,7 +32,7 @@ typedef NS_ENUM (NSUInteger, CNLiveVideoPlayerButtonClickActionOptions) {
  * appId               通过网站申请得到的appId
  * appKey              通过网站申请得到的appKey
  * hadFilm             是否有电影
- * contentId           内容ID
+ * vId                 视频ID
  * authFailed          鉴权失败回调
  *
  */
@@ -38,7 +40,7 @@ typedef NS_ENUM (NSUInteger, CNLiveVideoPlayerButtonClickActionOptions) {
                         appId:(NSString *)appId
                        appKey:(NSString *)appKey
                       hadFilm:(BOOL)hadFilm
-                    contentId:(NSString *)contentId
+                          vId:(NSString *)vId
                    authFailed:(void(^)(NSDictionary *errorInfo))authFailedBlock;
 
 @property (nonatomic, assign)id<CNLiveVideoPlayerViewDelegate> delegate;

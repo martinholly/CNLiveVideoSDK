@@ -10,6 +10,12 @@
 
 @protocol CNLiveActivityViewDelegate <NSObject>
 
+/*
+ {
+    @"errorCode"    : @"",
+    @"errorMessage" : @""
+ }
+ */
 //认证失败
 - (void)CNLiveActivityViewAuthFailed:(NSDictionary *)error;
 
@@ -40,7 +46,7 @@
 
 /*      集成视频播放和聊天室
  *
- * channelId          活动Id
+ * cnannelId          活动Id
  * sp_id              通过网站申请得到的sp_id
  * sp_key             通过网站申请得到的sp_key
  * roomId             聊天室Id
