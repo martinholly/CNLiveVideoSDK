@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.name          = 'CNLiveVideoSDK'
   s.version       = '0.8'
   s.summary       = 'CNLiveVideo iOS SDK'
-  s.homepage      = 'http://http://open.cnlive.com'
+  s.homepage      = 'http://open.cnlive.com'
   s.platform      = :ios, '7.0'
   s.source        = {
       :git => 'https://github.com/qpwang/CNLiveVideoSDK.git',
