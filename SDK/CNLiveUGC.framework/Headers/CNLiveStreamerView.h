@@ -7,7 +7,52 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CNLiveTypeDef.h"
+/*!
+ * @abstract  推流错误码，用于指示推流失败的原因
+ */
+typedef NS_ENUM(NSUInteger, CNLiveStreamerErrorCode) {
+    /// 正常无错误
+    CNLiveStreamerErrorCode_NONE = 0,
+    /// SDK 鉴权失败 (暂时正常推流5~8分钟后终止推流)
+    CNLiveStreamerErrorCode_CNLiveAUTHFAILED,
+    /// 当前帧编码失败
+    CNLiveStreamerErrorCode_ENCODE_FRAMES_FAILED,
+    /// 无法打开配置指示的CODEC
+    CNLiveStreamerErrorCode_CODEC_OPEN_FAILED,
+    /// 连接出错，检查地址
+    CNLiveStreamerErrorCode_CONNECT_FAILED,
+    /// 网络连接中断
+    CNLiveStreamerErrorCode_CONNECT_BREAK,
+    /// rtmp 推流域名不存在 (CNLive 自定义)
+    CNLiveStreamerErrorCode_RTMP_NonExistDomain,
+    /// rtmp 应用名不存在(CNLive 自定义)
+    CNLiveStreamerErrorCode_RTMP_NonExistApplication,
+    /// rtmp 流名已存在(CNLive 自定义)
+    CNLiveStreamerErrorCode_RTMP_AlreadyExistStreamName,
+    /// rtmp 被黑名单拒绝(CNLive 自定义)
+    CNLiveStreamerErrorCode_RTMP_ForbiddenByBlacklist,
+    /// rtmp 内部错误(CNLive 自定义)
+    CNLiveStreamerErrorCode_RTMP_InternalError,
+    /// rtmp URL 地址已过期(CNLive 自定义)
+    CNLiveStreamerErrorCode_RTMP_URLExpired,
+    /// rtmp URL 地址签名错误(CNLive 自定义)
+    CNLiveStreamerErrorCode_RTMP_SignatureDoesNotMatch,
+    /// rtmp URL 中AccessKeyId非法(CNLive 自定义)
+    CNLiveStreamerErrorCode_RTMP_InvalidAccessKeyId,
+    /// rtmp URL 中参数错误(CNLive 自定义)
+    CNLiveStreamerErrorCode_RTMP_BadParams,
+    /// rtmp URL 中的推流不在发布点内（CNLive 自定义）
+    CNLiveStreamerErrorCode_RTMP_ForbiddenByRegion,
+    /// SDK 因为鉴权失败停止推流
+    CNLiveStreamerErrorCode_FRAMES_THRESHOLD,
+    /// 没有输入的数据，无法开始推流
+    CNLiveStreamerErrorCode_NO_INPUT_SAMPLE,
+    ///网络中断或服务器异常
+    CNLiveStreamerErrorCode_ConnectBreak_OR_ServerAbnormal,
+    ///设备中断(锁屏)
+    CNLiveStreamerErrorCode_DeviceBreak,
+    
+};
 
 /* 购买电影券或飞吻成功后 聊天时消息发送的内容格式(送飞吻时num可不传)
  {
@@ -55,7 +100,7 @@
 /**
  *  直播过程中推流异常（在此代理中调用显示重试或直播结束view的方法）
  */
-- (void)streamError:(CNLiveStreamErrorCode)errorCode;
+- (void)streamError:(CNLiveStreamerErrorCode)errorCode;
 
 /**
  *  直播结束点击重播action
