@@ -69,7 +69,7 @@ typedef NS_ENUM (NSUInteger, CNLiveLivePlayerButtonClickActionOptions) {
  * kissMoney           当没有电影时，飞吻价格(有电影可不传)
  * roomId              聊天室Id
  * nickName            在聊天室中使用的昵称
- * vId                 视频Id
+ * channelId           主播Id
  * authFailed          鉴权失败回调
  *
  */
@@ -80,7 +80,7 @@ typedef NS_ENUM (NSUInteger, CNLiveLivePlayerButtonClickActionOptions) {
                     kissMoney:(NSString *)money
                        roomId:(NSString *)roomId
                      nickName:(NSString *)nickName
-                          vId:(NSString *)vId
+                    channelId:(NSString *)channelId
                    authFailed:(void(^)(NSDictionary *errorInfo))authFailedBlock;
 
 @property (nonatomic, assign)id<CNLiveLivePlayerViewDelegate> delegate;

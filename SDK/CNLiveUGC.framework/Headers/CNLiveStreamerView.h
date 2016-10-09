@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CNLiveTypeDef.h"
 
 /* 购买电影券或飞吻成功后 聊天时消息发送的内容格式(送飞吻时num可不传)
  {
@@ -21,7 +22,12 @@
 @protocol CNLiveStreamerViewDelegate <NSObject>
 
 /**
- *  初始化失败
+ *  开始推流成功
+ */
+- (void)startStreamSuccess;
+
+/**
+ *  开始推流失败
  */
 - (void)initializeErrorMessage:(NSString *)errorMessage;
 
@@ -49,7 +55,7 @@
 /**
  *  直播过程中推流异常（在此代理中调用显示重试或直播结束view的方法）
  */
-- (void)streamError;
+- (void)streamError:(CNLiveStreamErrorCode)errorCode;
 
 /**
  *  直播结束点击重播action
