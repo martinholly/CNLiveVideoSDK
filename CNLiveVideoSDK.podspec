@@ -14,6 +14,6 @@ Pod::Spec.new do |s|
   s.resources = 'SDK/*.bundle'
   s.license = 'MIT'
   s.requires_arc = false
-
+  s.authors = 'martin'
 end
 
