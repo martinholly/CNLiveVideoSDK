@@ -54,7 +54,7 @@ typedef NS_ENUM (NSUInteger, CNLiveLivePlayerButtonClickActionOptions) {
 - (void)chatroomConnectFaild:(NSDictionary *)error;
 
 //点击按钮的回调
-- (void)buttonClickOptions:(CNLiveLivePlayerButtonClickActionOptions)options;
+- (void)liveButtonClickOptions:(CNLiveLivePlayerButtonClickActionOptions)options;
 
 @end
 
@@ -70,6 +70,7 @@ typedef NS_ENUM (NSUInteger, CNLiveLivePlayerButtonClickActionOptions) {
  * roomId              聊天室Id
  * nickName            在聊天室中使用的昵称
  * channelId           主播Id
+ * timeout             视频加载超时时间
  * authFailed          鉴权失败回调
  *
  */
@@ -81,6 +82,7 @@ typedef NS_ENUM (NSUInteger, CNLiveLivePlayerButtonClickActionOptions) {
                        roomId:(NSString *)roomId
                      nickName:(NSString *)nickName
                     channelId:(NSString *)channelId
+                      timeout:(NSInteger)timeout
                    authFailed:(void(^)(NSDictionary *errorInfo))authFailedBlock;
 
 @property (nonatomic, assign)id<CNLiveLivePlayerViewDelegate> delegate;

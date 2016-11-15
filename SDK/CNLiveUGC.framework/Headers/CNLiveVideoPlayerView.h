@@ -20,7 +20,7 @@ typedef NS_ENUM (NSUInteger, CNLiveVideoPlayerButtonClickActionOptions) {
 @protocol CNLiveVideoPlayerViewDelegate <NSObject>
 
 //点击按钮的回调
-- (void)buttonClickOptions:(CNLiveVideoPlayerButtonClickActionOptions)options;
+- (void)videoButtonClickOptions:(CNLiveVideoPlayerButtonClickActionOptions)options;
 
 @end
 
@@ -33,6 +33,7 @@ typedef NS_ENUM (NSUInteger, CNLiveVideoPlayerButtonClickActionOptions) {
  * appKey              通过网站申请得到的appKey
  * hadFilm             是否有电影
  * vId                 视频ID
+ * timeout             视频加载超时时间
  * authFailed          鉴权失败回调
  *
  */
@@ -41,6 +42,7 @@ typedef NS_ENUM (NSUInteger, CNLiveVideoPlayerButtonClickActionOptions) {
                        appKey:(NSString *)appKey
                       hadFilm:(BOOL)hadFilm
                           vId:(NSString *)vId
+                      timeout:(NSInteger)timeout
                    authFailed:(void(^)(NSDictionary *errorInfo))authFailedBlock;
 
 @property (nonatomic, assign)id<CNLiveVideoPlayerViewDelegate> delegate;
